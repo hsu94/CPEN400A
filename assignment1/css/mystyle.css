@@ -3,15 +3,36 @@ body {
 }
 
 #logo_image {
-    width: 300px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
 }
 
-#welcomeBanner {
-    width: 500px;
-    height: 150px;
-]
+body {
+	width: 1000px;
+}
 
+#header{
+	height:250px;
+	width: 1000px;
+}
+
+#logo{
+	width: 250px;
+	height: 250px;
+	margin-left: 50px;
+	margin-right: 150px;
+	float: left;
+}
+
+#welcomeBanner{
+	width: 550px;
+	height: 250px;	
+	float: right;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 250px;
+	background-color : red;	
+}
 #productpic1 {
     width: 200px;
     height: 200px;
