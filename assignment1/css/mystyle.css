@@ -26,47 +26,112 @@ body {
 }
 
 #welcomeBanner{
-	width: 550px;
+	width: 520px;
 	height: 250px;	
 	float: right;
 	text-align: center;
+	margin-right:30px;
 	vertical-align: middle;
 	line-height: 250px;
-	background-color : red;	
+	background-color : blue;	
 }
 
 #mainContent{
 }
 #navigationMenu{
-	margin-top: 100px;
+	margin-top: 50px;
 	width: 250px;
-	height: 2000px;
+	height: 500px;
 	margin-left:50px;
-	margin-right:15px;
+	margin-right:0px;
 	float:left;
 }
- li{
-	font-size:40px;
-	margin: 0 0 30px 0;
+li{
+	font-size:30px;
+	margin: 0 0 20px 0;
 	list-style-type: none;
-	background-color : red;
+	background-color : blue;
 }
 
+li:hover{
+	background-color: yellow;
+	color:red;
+}
 #productList{
-	margin-top: 100px;
+	margin-top: 40px;
 	width:550px;
-	height:2000px;
+	height:900px;
 	margin-left:50px;
 	margin-right:15px;
 	float:right;
 }
 
-#footer {	
-	clear:both;
+
+
+.product{
+	display:inline-block;
+	height:180px;
+	width:180px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	position:relative;
-	z-index: 10;
-	height:3em;
-	margin-top:-3em;
+	
 }
+
+.text{
+	position:relative;
+	bottom: 30px;
+	left: 15px;
+	width:150px;
+	background-color : blue;
+	text-align:center;
+	color:yellow;	
+	visibility: hidden;
+	height: 30px;
+	margin-bottom: 0;	
+	padding: 0;	
+}
+
+p{
+	margin:0;
+	
+	text-align:center;
+}
+
+.alt{
+	margin-top: -30px;
+}
+
+.product:hover .text{
+	visibility:visible;
+}
+
+.product:hover{
+	background-color: grey;
+}
+
+#productpic {
+	height:150px;
+	width:150px;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	display: block;
+	vertical-align:middle;
+	
+	
+}
+
+#footer {	
+	margin-top : 0px;
+	width: 1000px;
+	height:30px;
+	font-size: 20px;
+	text-align:center;
+	background-color: blue;		
+}
+
 
 
