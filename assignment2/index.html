@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Assignment 1: Solution</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src ="javascript/javascript.js"></script>
+    <script src="js/cart.js" type="text/javascript"></script>
     <script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script>
     <script src="http://ece.ubc.ca/~gpli/CPEN400A/hw2/test.js" type="text/javascript"></script>
 </head>
@@ -15,6 +15,9 @@
         </div>
         <div id="welcomeBanner">
             Welcome to my bookstore
+        </div>
+        <div id="showCart" onclick="showCart()">
+            Show Cart
         </div>
     </div>
 
@@ -33,197 +36,112 @@
         <div id="productList">
             <ul>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Box1_$10.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/Box1_$10.png" />
                     <div class="price">
                         $10
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Box1</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Box2_$5.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/Box2_$5.png" />
                     <div class="price">
                         $5
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Box2</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Clothes1_$20.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/Clothes1_$20.png" />
                     <div class="price">
                         $20
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Clothes1</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Clothes2_$30.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/Clothes2_$30.png" />
                     <div class="price">
                         $30
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Clothes2</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Jeans_$50.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
-                        <div class="price">
+                    <image class="product" src="images/Jeans_$50.png" />
+                    <div class="price">
                         $50
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Jeans</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Keyboard_$20.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/Keyboard_$20.png" />
                     <div class="price">
                         $20
                     </div>
-                    <div class="add">
-                        Add
-                     </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Keyboard</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/KeyboardCombo_$40.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/KeyboardCombo_$40.png" />
                     <div class="price">
                         $40
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">KeyboardCombo</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Mice_$20.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/Mice_$20.png" />
                     <div class="price">
                         $20
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Mice</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/PC1_$350.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/PC1_$350.png" />
                     <div class="price">
                         $350
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">PC1</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/PC2_$400.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/PC2_$400.png" />
                     <div class="price">
                         $400
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">PC2_</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/PC3_$300.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/PC3_$300.png" />
                     <div class="price">
                         $300
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">PC3</div>
                 </li>
                 <li>
-                    <div style="position: relative; left: 0; top: 0;">
-                        <image class="product" src="images/Tent_$100.png" style = "position:relative; top: 0; left: 0;" />
-                        <image class="cart" src="images/cart.png" style = "position:absolute; top: 0; left: 0;"/>
-                    </div>
+                    <image class="product" src="images/Tent_$100.png" />
                     <div class="price">
                         $100
                     </div>
-                    <div class="add">
-                        Add
-                    </div>
-                    <div class="remove">
-                        Remove
-                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
                     <div class="name">Tent</div>
-
                 </li>
             </ul>
         </div>

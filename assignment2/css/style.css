@@ -24,6 +24,18 @@
     color: white;
 }
 
+#showCart {
+    float:right;
+    width: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    background-color: #2e6680;
+    color: white;
+    text-align: center;
+
+}
+
 #welcomeBanner {
     float: right;
     width: 780px;
@@ -71,8 +83,6 @@
     list-style: none;
 }
 
-
-
 #productList ul li {
     display: block;
     float: left;
@@ -86,12 +96,10 @@
     border-radius: 5px;
     text-align: center;
     position: relative;
-    cursor: pointer;
 }
 
 #productList ul li:hover {
     background-color: #aaaaaa;
-
 }
 
 #productList ul li .product {
@@ -100,17 +108,6 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-
-}
-
-#productList ul li .product :hover {
-    height: 200px;
-    max-width: 200px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    background: DarkGray;
-    color: DarkGray;
 }
 
 #productList ul li .price {
@@ -138,80 +135,43 @@
     display: block;
 }
 
-#productList ul li .add {
-    background-color: red;
-    color: white;
-    text-align: center;
-    position: absolute;
-    width: 80px;
-    height: 30px;
-    line-height: 30px;
-    bottom: 130px;
-    opacity: 1.0;
-    margin-left: 10px;
-    color: white;
-    display: none;
-    text-align: center;
-}
-
 #productList ul li:hover .add {
     display: block;
-}
-
-#productList ul li .add:hover {
-    border-style: solid;
-    border-width:5px;
-    border-color: black;
-    opacity: 0.7;
-}
-
-#productList ul li .remove:hover {
-    border-style: solid;
-    border-width:5px;
-    border-color: black;
-    opacity: 0.7;
-}
-
-
-#productList ul li .remove {
-    background-color: green;
-    color: white;
-    text-align: center;
-    position: absolute;
-    width: 80px;
-    height: 30px;
-    line-height: 30px;
-    bottom: 130px;
-    opacity: 1.0;
-    margin-left:110px;
-    color: white;
-    display: none;
-    text-align: center;
 }
 
 #productList ul li:hover .remove {
     display: block;
 }
 
-#productList ul li .cart{
-       height: 200px;
-       max-width: 200px;
-       -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-       border-radius: 5px;
-       opacity :0;
 
+.add {
+    display: none;
+    margin: -120px 0px 0px 10px;
+    position: relative;
+    background-color: green;
+    color: white;
+    float: left;
+    width: 80px;
+    height: 30px;
+    padding-top: 15px;
+    opacity: 0.6;
+    text-align: center;
+    border-radius: 5px;
 }
-#productList ul li:hover .cart{
-    display: block;
-    width: 200px;
-    height:172px;
-    position:absolute;
-    top: 0;
-    right: 0;
-    left:0;
-    background: DarkGray;
-    opacity: 0.8;
+
+.remove {
+    display: none;
+    margin: -120px 10px 0px 0px;
+    position: relative;
+    background-color: red;
+    color: white;
+    float: right;
+    width: 80px;
+    height: 30px;
+    padding-top: 15px;
+    opacity: 0.6;
+    text-align: center;
+    border-radius: 5px;
 }
 
 #footer {
