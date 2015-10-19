@@ -96,7 +96,7 @@ function showCart() {
         alert(product);
         setTimeout(function(item) {
             alert("Name: " + item + ": Quantity: " + cart[item]);
-        }, i * 30000, product);
+        }, i * 3000, product);
         i++;
     }
 
