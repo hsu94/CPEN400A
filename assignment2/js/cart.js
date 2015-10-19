@@ -17,7 +17,6 @@ products["PC1"] = 1;
 products["PC2_"] = 1;
 products["PC3"] = 1;
 products["Tent"] = 1;
-
 inactiveTime = 0; // The amount of seconds that the user has been inactive
 
 
@@ -94,9 +93,10 @@ function showCart() {
     var i = 0;
     for (var product in cart) {
         alert(product);
-        setTimeout(function(item) {
+        var test = setTimeout(function(item) {
             alert("Name: " + item + ": Quantity: " + cart[item]);
-        }, i * 3000, product);
+        }, i * 30000, product);
+
         i++;
     }
 
