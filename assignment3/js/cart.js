@@ -115,11 +115,18 @@ function closestByClass(el, name) {
 */
 function addToCart(productName) {
     //var total = 5;
-    cart[productName]++;
-    products[productName].quantity --;
-    priceTotal = priceTotal + products[productName].price;
-    var element = document.getElementById("cartTotal");
-    element.innerHTML = "CartTotal($"+priceTotal+")";
+    if(cart[productName] == 10){
+        alert("No quantities left in stock!!")
+    }
+    else{
+        cart[productName]++;
+        products[productName].quantity --;
+        priceTotal = priceTotal + products[productName].price;
+        var element = document.getElementById("cartTotal");
+        element.innerHTML = "CartTotal($"+priceTotal+")";
+        showButtons();
+    }
+
 }
 
 /*
@@ -135,6 +142,7 @@ function removeFromCart(productName) {
          priceTotal = priceTotal - products[productName].price;
          var element = document.getElementById("cartTotal");
          element.innerHTML = "CartTotal($"+priceTotal+")";
+         showButtons();
       }
 
 }
@@ -162,8 +170,9 @@ function countInactive() {
     // This condition will prevent the user from being spammed with alerts
     if (inactiveTime < 300) {
         inactiveTime++;
+         var countdownTime = 300-inactiveTime;
          var timerCount = document.getElementById("timeCount");
-         timerCount.innerHTML = "time elapsed: "+inactiveTime;
+         timerCount.innerHTML = "time elapsed: "+countdownTime;
         if (inactiveTime >= 300) {
             alert("Hey there! Are you still planning to buy something?");
             inactiveTime = 0;
@@ -175,13 +184,92 @@ function resetCount() {
     inactiveTime = 0;
 }
 
+function showButtons(){
+         var removeClick = document.getElementsByClassName("remove");
+        if(cart["Box1"] > 0){
+         removeClick[0].style.visibility = 'visible';
+        }
+        else{
+         removeClick[0].style.visibility = 'hidden';
+        }
+        if(cart["Box2"] > 0){
+         removeClick[1].style.visibility = 'visible';
+        }
+        else{
+         removeClick[1].style.visibility = 'hidden';
+        }
+        if(cart["Clothes1"] > 0){
+         removeClick[2].style.visibility = 'visible';
+        }
+        else{
+         removeClick[2].style.visibility = 'hidden';
+        }
+        if(cart["Clothes2"] > 0){
+         removeClick[3].style.visibility = 'visible';
+        }
+        else{
+         removeClick[3].style.visibility = 'hidden';
+        }
+        if(cart["Jeans"] > 0){
+         removeClick[4].style.visibility = 'visible';
+        }
+        else{
+         removeClick[4].style.visibility = 'hidden';
+        }
+        if(cart["Keyboard"] > 0){
+         removeClick[5].style.visibility = 'visible';
+        }
+        else{
+         removeClick[5].style.visibility = 'hidden';
+        }
+        if(cart["KeyboardCombo"] > 0){
+         removeClick[6].style.visibility = 'visible';
+        }
+        else{
+         removeClick[6].style.visibility = 'hidden';
+        }
+        if(cart["Mice"] > 0){
+         removeClick[7].style.visibility = 'visible';
+        }
+        else{
+         removeClick[7].style.visibility = 'hidden';
+        }
+        if(cart["PC1"] > 0){
+         removeClick[8].style.visibility = 'visible';
+        }
+        else{
+         removeClick[8].style.visibility = 'hidden';
+        }
+        if(cart["PC2"] > 0){
+         removeClick[9].style.visibility = 'visible';
+        }
+        else{
+         removeClick[9].style.visibility = 'hidden';
+        }
+        if(cart["PC3"] > 0){
+         removeClick[10].style.visibility = 'visible';
+        }
+        else{
+         removeClick[10].style.visibility = 'hidden';
+        }
+        if(cart["Tent"] > 0){
+         removeClick[11].style.visibility = 'visible';
+        }
+        else{
+         removeClick[11].style.visibility = 'hidden';
+        }
+
+}
 window.onload = function() {
 
     // Add click event listeners to the cart buttons
     var addButtons = document.getElementsByClassName("add");
     var removeButtons = document.getElementsByClassName("remove");
+    //removeButtons[0].style.visibility = 'hidden';
     registerAddClickEventListeners(addButtons);
     registerRemoveClickEventListeners(removeButtons);
+
+
 
 
 
