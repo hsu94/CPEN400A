@@ -48,8 +48,13 @@
 
 #cartTotal{
     text-align:center;
-    width:100px;
+    width: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    background-color:red;
     clear:both;
+    cursor: pointer;
 
 }
 

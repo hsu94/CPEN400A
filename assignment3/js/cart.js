@@ -126,11 +126,16 @@ function addToCart(productName) {
 * Removes an item from the cart
 */
 function removeFromCart(productName) {
-
-     cart[productName]--;
-
-
-  products[productName].quantity ++;
+     if(cart[productName] == 0){
+        alert("Product does not exist in cart");
+     }
+     else{
+         cart[productName]--;
+         products[productName].quantity ++;
+         priceTotal = priceTotal - products[productName].price;
+         var element = document.getElementById("cartTotal");
+         element.innerHTML = "CartTotal($"+priceTotal+")";
+      }
 
 }
 
