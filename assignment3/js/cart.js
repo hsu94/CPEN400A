@@ -2,6 +2,7 @@
 * Handles all logic for the shopping cart functionality
 * 
 */
+var priceTotal = 0;
 
 var cart = {
     'Box1' : 0,
@@ -11,6 +12,7 @@ var cart = {
     'Jeans' : 0,
     'Keyboard' : 0,
     'KeyboardCombo' : 0,
+    'Mice' : 0,
     'PC1' : 0,
     'PC2' : 0,
     'PC31' : 0,
@@ -47,8 +49,8 @@ var products = {
         'price': 40,
         'quantity' : 10
     },
-    'Box2':{
-        'Mice': 20,
+    'Mice':{
+        'price': 20,
         'quantity' : 10
     },
     'PC1':{
@@ -112,10 +114,12 @@ function closestByClass(el, name) {
 * Adds an item to the cart
 */
 function addToCart(productName) {
-
+    //var total = 5;
     cart[productName]++;
-
     products[productName].quantity --;
+    priceTotal = priceTotal + products[productName].price;
+    var element = document.getElementById("cartTotal");
+    element.innerHTML = "CartTotal($"+priceTotal+")";
 }
 
 /*
@@ -135,7 +139,6 @@ function showCart() {
     for (var product in cart) {
       if(cart[product] > 0){
             alert(product);
-             alert("hey" + products.Keyboard.quantity);
             var test = setTimeout(function(item) {
                 alert("Name: " + item + ": Quantity: " + cart[item]);
             }, i * 30000, product);
@@ -154,6 +157,8 @@ function countInactive() {
     // This condition will prevent the user from being spammed with alerts
     if (inactiveTime < 300) {
         inactiveTime++;
+         var timerCount = document.getElementById("timeCount");
+         timerCount.innerHTML = "time elapsed: "+inactiveTime;
         if (inactiveTime >= 300) {
             alert("Hey there! Are you still planning to buy something?");
             inactiveTime = 0;
@@ -172,7 +177,8 @@ window.onload = function() {
     var removeButtons = document.getElementsByClassName("remove");
     registerAddClickEventListeners(addButtons);
     registerRemoveClickEventListeners(removeButtons);
-    alert("hey" + products.Box1.quantity);
+
+
 
     // Initiate the cart counting
     setInterval(countInactive, 1000);
