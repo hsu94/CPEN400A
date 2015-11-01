@@ -14,6 +14,11 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="header">
@@ -24,9 +29,9 @@
             Welcome to my bookstore
         </div>
         <div id="cartInfo">
-            <div id="cartTotal" onclick="openCart()">
+            <button type ="button" class="myButton" data-toggle="modal" id="cartTotal">
                 Cart($0)
-            </div>
+            </button>
             <div id="showCart" onclick="showCart()">
                 Show Cart
             </div>
@@ -197,12 +202,239 @@
         </div>
     </div>
 
+
     <div id="footer">
         Copyright &copy; 2015
         <div id="timeCount">
             time elapsed: 300
         </div>
     </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">My Cart</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalProd" id="Box1">
+                            <span class ="modalProduct">
+                                Box1
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Box2">
+                            <span class ="modalProduct">
+                                Box2
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="Clothes1">
+                            <span class ="modalProduct">
+                                Clothes1
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="Clothes2">
+                            <span class ="modalProduct">
+                                Clothes2
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="Jeans">
+                            <span class ="modalProduct">
+                                Jeans
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="Keyboard">
+                            <span class ="modalProduct">
+                                Keyboard
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="KeyboardCombo">
+                            <span class ="modalProduct">
+                                KeyboardCombo
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="Mice">
+                            <span class ="modalProduct">
+                                Mice
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="PC1">
+                            <span class ="modalProduct">
+                                PC1
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="PC2">
+                            <span class ="modalProduct">
+                                PC2
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="PC3">
+                            <span class ="modalProduct">
+                                PC3
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div id="Tent">
+                            <span class ="modalProduct">
+                                Tent
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+
+
+
+                        </span>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" >Checkout</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 </body>
 </html>

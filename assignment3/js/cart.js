@@ -95,6 +95,30 @@ function registerRemoveClickEventListeners(elements) {
     }
 }
 
+function registerAddModalClickEventListeners(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', function() {
+            var product = this.parentNode;
+            resetCount();
+            addToCart(product.id);
+            showButtons();
+        }, false);
+    }
+}
+
+function registerRemoveModalClickEventListeners(elements) {
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', function() {
+            var product = this.parentNode;
+            resetCount();
+            removeFromCart(product.id);
+            showButtons();
+        }, false);
+    }
+}
+
+
 /**
 * Traverses the siblings on the DOM tree to find the element with the given class
 */
@@ -188,14 +212,26 @@ function showButtons(){
          var removeClick = document.getElementsByClassName("remove");
         if(cart["Box1"] > 0){
          removeClick[0].style.visibility = 'visible';
+         var modalProd = document.getElementById("Box1");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Box1"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Box1'].price * cart['Box1'];
         }
         else{
+         var modalProd = document.getElementById("Box1");
+         modalProd.style.display = "none";
          removeClick[0].style.visibility = 'hidden';
         }
         if(cart["Box2"] > 0){
          removeClick[1].style.visibility = 'visible';
+         var modalProd2 = document.getElementById("Box2");
+         modalProd2.style.display = "block";
+         modalProd2.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Box2"];
+         modalProd2.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Box2'].price * cart['Box2'];
         }
         else{
+         var modalProd = document.getElementById("Box2");
+         modalProd.style.display = "none";
          removeClick[1].style.visibility = 'hidden';
         }
         if(cart["Clothes1"] > 0){
@@ -260,15 +296,30 @@ function showButtons(){
         }
 
 }
+
+function openModal(){
+    $(document).ready(function(){
+        $("#cartTotal").click(function(){
+            $("#myModal").modal();
+        });
+    });
+
+
+
+}
 window.onload = function() {
 
     // Add click event listeners to the cart buttons
     var addButtons = document.getElementsByClassName("add");
     var removeButtons = document.getElementsByClassName("remove");
+    var addModalButtons = document.getElementsByClassName("addModal");
+    var removeModalButtons = document.getElementsByClassName("removeModal");
     //removeButtons[0].style.visibility = 'hidden';
     registerAddClickEventListeners(addButtons);
     registerRemoveClickEventListeners(removeButtons);
-
+    registerAddModalClickEventListeners(addModalButtons);
+    registerRemoveModalClickEventListeners(removeModalButtons);
+    openModal();
 
 
 
