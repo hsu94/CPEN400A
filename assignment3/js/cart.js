@@ -224,10 +224,10 @@ function showButtons(){
         }
         if(cart["Box2"] > 0){
          removeClick[1].style.visibility = 'visible';
-         var modalProd2 = document.getElementById("Box2");
-         modalProd2.style.display = "block";
-         modalProd2.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Box2"];
-         modalProd2.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Box2'].price * cart['Box2'];
+         var modalProd = document.getElementById("Box2");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Box2"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Box2'].price * cart['Box2'];
         }
         else{
          var modalProd = document.getElementById("Box2");
@@ -236,63 +236,132 @@ function showButtons(){
         }
         if(cart["Clothes1"] > 0){
          removeClick[2].style.visibility = 'visible';
+         var modalProd = document.getElementById("Clothes1");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Clothes1"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Clothes1'].price * cart['Clothes1'];
         }
         else{
+         var modalProd = document.getElementById("Clothes1");
+         modalProd.style.display = "none";
          removeClick[2].style.visibility = 'hidden';
         }
         if(cart["Clothes2"] > 0){
          removeClick[3].style.visibility = 'visible';
+         var modalProd = document.getElementById("Clothes2");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Clothes2"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Clothes2'].price * cart['Clothes2'];
         }
         else{
+         var modalProd = document.getElementById("Clothes2");
+         modalProd.style.display = "none";
          removeClick[3].style.visibility = 'hidden';
         }
         if(cart["Jeans"] > 0){
          removeClick[4].style.visibility = 'visible';
+         var modalProd = document.getElementById("Jeans");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Jeans"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Jeans'].price * cart['Jeans'];
         }
         else{
          removeClick[4].style.visibility = 'hidden';
+         var modalProd = document.getElementById("Jeans");
+         modalProd.style.display = "none";
         }
         if(cart["Keyboard"] > 0){
          removeClick[5].style.visibility = 'visible';
+         var modalProd = document.getElementById("Keyboard");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Keyboard"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Keyboard'].price * cart['Keyboard'];
         }
         else{
          removeClick[5].style.visibility = 'hidden';
+         var modalProd = document.getElementById("Keyboard");
+         modalProd.style.display = "none";
         }
         if(cart["KeyboardCombo"] > 0){
          removeClick[6].style.visibility = 'visible';
+         var modalProd = document.getElementById("KeyboardCombo");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["KeyboardCombo"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['KeyboardCombo'].price * cart['KeyboardCombo'];
         }
         else{
          removeClick[6].style.visibility = 'hidden';
+         var modalProd = document.getElementById("KeyboardCombo");
+         modalProd.style.display = "none";
         }
         if(cart["Mice"] > 0){
          removeClick[7].style.visibility = 'visible';
+         var modalProd = document.getElementById("Mice");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Mice"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Mice'].price * cart['Mice'];
         }
         else{
          removeClick[7].style.visibility = 'hidden';
+         var modalProd = document.getElementById("Mice");
+         modalProd.style.display = "none";
         }
         if(cart["PC1"] > 0){
          removeClick[8].style.visibility = 'visible';
+         var modalProd = document.getElementById("PC1");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["PC1"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['PC1'].price * cart['PC1'];
         }
         else{
          removeClick[8].style.visibility = 'hidden';
+         var modalProd = document.getElementById("PC1");
+         modalProd.style.display = "none";
         }
         if(cart["PC2"] > 0){
          removeClick[9].style.visibility = 'visible';
+         var modalProd = document.getElementById("PC2");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["PC2"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['PC2'].price * cart['PC2'];
         }
         else{
          removeClick[9].style.visibility = 'hidden';
+         var modalProd = document.getElementById("PC2");
+         modalProd.style.display = "none";
         }
         if(cart["PC3"] > 0){
          removeClick[10].style.visibility = 'visible';
+         var modalProd = document.getElementById("PC3");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["PC3"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['PC3'].price * cart['PC3'];
         }
         else{
          removeClick[10].style.visibility = 'hidden';
+         var modalProd = document.getElementById("PC3");
+         modalProd.style.display = "none";
         }
         if(cart["Tent"] > 0){
          removeClick[11].style.visibility = 'visible';
+         var modalProd = document.getElementById("Tent");
+         modalProd.style.display = "block";
+         modalProd.getElementsByClassName("modalQuantity")[0].innerHTML = "Quantity: "+cart["Tent"];
+         modalProd.getElementsByClassName("modalPrice")[0].innerHTML = "$"+products['Tent'].price * cart['Tent'];
         }
         else{
          removeClick[11].style.visibility = 'hidden';
+         var modalProd = document.getElementById("Tent");
+         modalProd.style.display = "none";
+        }
+        if(priceTotal > 0){
+           var modalTotal = document.getElementById('Total');
+           modalTotal.getElementsByClassName('modalPrice')[0].innerHTML = '$'+priceTotal;
+           modalTotal.style.display = 'block';
+        }
+        else{
+           var modalTotal = document.getElementById('Total');
+           modalTotal.style.display = 'none';
         }
 
 }

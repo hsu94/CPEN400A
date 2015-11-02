@@ -270,31 +270,53 @@
 .modal {
     position: absolute;
     margin-top: 200px;
+    width: 100%;
 }
 
 .modalQuantity{
-    text-indent: 100px;
+   position: relative;
+   margin-left: 100px;
+   width: 50px;
 }
 
 .modalPrice{
-    margin-left : 50px;
-
+    margin-left: 50px;
+    width: 20%;
 }
 
 
 .addModal{
     cursor:pointer;
     float:right;
+
 }
 
 
 .removeModal{
     cursor:pointer;
     float:right;
+
 }
 
 .modalProd{
     display:none;
+    width: 100%;
+}
+
+.modalProduct{
+    width: 40%;
+
+    float:left;
+}
+
+#Total{
+    font-weight: bold;
+    float:left;
+
+}
+
+#Total .modalPrice{
+   margin-left:222px;
 }
 
 #footer {
