@@ -397,6 +397,15 @@ window.onload = function() {
     setInterval(countInactive, 1000);
 }
 
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        $("#myModal").modal('hide');
+    }
+};
+
+
+
 
 
 
