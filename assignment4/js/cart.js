@@ -393,7 +393,7 @@ function sendRequest(){
     xhr.onload = function() {
     			if (xhr.status==200) {
     			    alert(xhr.responseText);
-    			    products = xhr.responseText;
+    			    products = JSON.parse(xhr.responseText);
     			    alert("yay");
     			}
     			else{
