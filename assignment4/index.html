@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Assignment 1: Solution</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/cart.js" type="text/javascript"></script>
+    <script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            BookStore
+        </div>
+        <div id="welcomeBanner">
+            Welcome to my bookstore
+        </div>
+        <div id="cartInfo">
+            <button type ="button" class="myButton" data-toggle="modal" id="cartTotal">
+                Cart($0)
+            </button>
+            <div id="showCart" onclick="showCart()">
+                Show Cart
+            </div>
+        </div>
+    </div>
+
+    <div id="mainContent">
+        <div id="navigationMenu">
+            <ul>
+                <li>All Items</li>
+                <li>Books</li>
+                <li>Clothing</li>
+                <li>Tech</li>
+                <li>Gifts</li>
+                <li>Stationary</li>
+                <li>Supplies</li>
+            </ul>
+        </div>
+        <div id="productList">
+            <ul>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Box1_$10.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+
+                    <div class="price">
+                        $10
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Box1</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Box2_$5.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $5
+                    </div>
+
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Box2</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Clothes1_$20.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $20
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Clothes1</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Clothes2_$30.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $30
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Clothes2</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Jeans_$50.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $50
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Jeans</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Keyboard_$20.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $20
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Keyboard</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/KeyboardCombo_$40.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $40
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">KeyboardCombo</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Mice_$20.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $20
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Mice</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/PC1_$350.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $350
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">PC1</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/PC2_$400.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $400
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">PC2</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/PC3_$300.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $300
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">PC3</div>
+                </li>
+                <li>
+                    <div style ="position:relative; left: 0; top: 0;">
+                        <image class="product" src="images/Tent_$100.png" style = "position:relative; top: 0; left: 0;"/>
+                        <image class="cartlogo" src="images/cart.png" style = "position:absolute; top: 0; left: 0;" />
+                    </div>
+                    <div class="price">
+                        $100
+                    </div>
+                    <span class="add">Add</span>
+                    <span class="remove">Remove</span>
+                    <div class="name">Tent</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="footer">
+        Copyright &copy; 2015
+        <div id="timeCount">
+            time elapsed: 300
+        </div>
+    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">My Cart</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalProd" id="Box1">
+                            <span class ="modalProduct">
+                                Box1
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Box2">
+                            <span class ="modalProduct">
+                                Box2
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Clothes1">
+                            <span class ="modalProduct">
+                                Clothes1
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Clothes2">
+                            <span class ="modalProduct">
+                                Clothes2
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Jeans">
+                            <span class ="modalProduct">
+                                Jeans
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Keyboard">
+                            <span class ="modalProduct">
+                                Keyboard
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="KeyboardCombo">
+                            <span class ="modalProduct">
+                                KeyboardCombo
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Mice">
+                            <span class ="modalProduct">
+                                Mice
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="PC1">
+                            <span class ="modalProduct">
+                                PC1
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="PC2">
+                            <span class ="modalProduct">
+                                PC2
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="PC3">
+                            <span class ="modalProduct">
+                                PC3
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Tent">
+                            <span class ="modalProduct">
+                                Tent
+                            </span>
+                            <span class = "modalQuantity">
+                                Quantity: 0
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            <span class="removeModal">
+                                -
+                            </span>
+                            <span class = "addModal" >
+                                +
+                            </span>
+                        </div>
+                        <div class="modalProd" id="Total">
+                            <span class ="modalProduct">
+                                Total
+                            </span>
+                            </span>
+                            <span class = "modalPrice">
+                                $0
+                            </span>
+                            </span>
+                        </div>
+
+
+                        </span>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" >Checkout</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+</body>
+</html>
