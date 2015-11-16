@@ -6,6 +6,7 @@
 
 var priceTotal = 0;
 var totalRequests = 0;
+var previousPrice = new Array(12);
 
 var cart = {
     'Box1' : 0,
@@ -143,37 +144,37 @@ function closestByClass(el, name) {
 /*
 * Adds an item to the cart
 */
-function addToCart(productName) {
+function addToCart(product) {
     //var total = 5;
-    alert("At least this works");
-     alert(productName);
-    if(products[productName].quantity < 1){
+   // alert("At least this works");
+     //alert(productName);
+    if(products[product].quantity < 1){
         alert("No quantities left in stock!!")
     }
     else{
-        alert("At least this works too");
-        cart[productName]++;
-        products[productName].quantity --;
-        priceTotal = priceTotal + products[productName].price;
+      // alert("At least this works too");
+        cart[product]++;
+        products[product].quantity --;
+        priceTotal = priceTotal + products[product].price;
         var element = document.getElementById("cartTotal");
         element.innerHTML = "CartTotal($"+priceTotal+")";
         showButtons();
     }
-     alert("At least this works three");
+    // alert("At least this works three");
 
 }
 
 /*
 * Removes an item from the cart
 */
-function removeFromCart(productName) {
-     if(cart[productName] == 0){
+function removeFromCart(product) {
+     if(cart[product] == 0){
         alert("Product does not exist in cart");
      }
      else{
-         cart[productName]--;
-         products[productName].quantity ++;
-         priceTotal = priceTotal - products[productName].price;
+         cart[product]--;
+         products[product].quantity ++;
+         priceTotal = priceTotal - products[product].price;
          var element = document.getElementById("cartTotal");
          element.innerHTML = "CartTotal($"+priceTotal+")";
          showButtons();
@@ -386,50 +387,119 @@ function openModal(){
 
 function sendRequest(){
 
-    var xhr = new XMLHttpRequest();
+     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://cpen400a.herokuapp.com/products", true);
 
-    xhr.onload = function() {
-    			if (xhr.status==200) {
-    			    alert(xhr.responseText);
-    			    products = JSON.parse(xhr.responseText);
-    			    alert("yay");
-    			}
-    			else{
-    			    alert("Aww");
-    			    if(totalRequests < 5){
-    			        sendRequest();
-    			        totalRequests++;
-    			    }
-    			    else
-    			        alert("giving up after 5 requests");
-    			}
-    }
+     xhr.onload = function() {
+     			if (xhr.status==200) {
+     			   // alert(xhr.responseText);
+     			    products = JSON.parse(xhr.responseText);
+     			    totalRequests = 0;
+     			}
+     			else{
+     			    if(totalRequests < 5){
+     			        sendRequest();
+     			        totalRequests++;
+     			    }
+     			    else
+     			        alert("giving up after 5 requests");
+     			}
+     }
 
-    xhr.ontimeout = function() {
-    			alert("timed out");
-                if(totalRequests < 5){
-                    sendRequest();
-                    totalRequests++;
+     xhr.ontimeout = function() {
+     			//alert("timed out");
+                 if(totalRequests < 5){
+                     sendRequest();
+                     totalRequests++;
+                 }
+                 else
+                     alert("giving up after 5 requests");
+     		}
+     xhr.onerror = function() {
+     			//alert("error");
+                 if(totalRequests < 5){
+                     sendRequest();
+                     totalRequests++;
+                 }
+                 else
+                     alert("giving up after 5 requests");
+     		};
+     xhr.timeout = 2000;
+     xhr.open("GET", "https://cpen400a.herokuapp.com/products", true);
+     xhr.send();
+
+ }
+
+
+
+function checkout(){
+   inactiveTime = 0;
+   var i = 0;
+   for(var product in products){
+        previousPrice[i] = products[product].price;
+        i++;
+   }
+   $.ajax({
+   			url: 'https://cpen400a.herokuapp.com/products',
+   			dataType: "json",
+			tryCount : 0,
+   			retryLimit : 5,
+   			timeout: 1000,
+   			success: function(server) {
+                products = server;
+                totalRequests = 0;
+               // alert(products["Box1"].quantity);
+                confirmCheckout();
+            },
+            error: function(x,t,m){
+                if(t="timeout"){
+                    //alert("timed out");
+
+                        checkout();
+
                 }
-                else
-                    alert("giving up after 5 requests");
-    		}
-    xhr.onerror = function() {
-    			alert("error");
-                if(totalRequests < 5){
-                    sendRequest();
-                    totalRequests++;
-                }
-                else
-                    alert("giving up after 5 requests");
-    		};
-    xhr.timeout = 2000;
-    xhr.send();
+                else{
+
+                        checkout();
+                 }
+            }
+
+        });
+
+
+   // alert(products);
+
 
 }
 
+function confirmCheckout(){
+   //alert("Box 1 quantity is " + products["Clothes1"].quantity);
+   //alert("price is " + products["Clothes1"].price);
+    var j = 0;
+    for(var product in products){
+        if (cart[product] > 0){
+            if(cart[product] > products[product].quantity){
+                alert("Sorry, there are only " + products[product].quantity + " " + product +"(s) left in stock");
+                cart[product] = products[product].quantity;
+            }
+            if(products[product].price != previousPrice[j]){
+                alert(product + " now costs $" + products[product].price + "each");
+            }
+        }
+        showButtons();
+        calculateTotal();
+        j++;
+    }
+    alert("Your total is $" + priceTotal);
+
+}
+
+function calculateTotal(){
+    priceTotal = 0;
+    for(var product in cart)
+        priceTotal = priceTotal + (cart[product] * products[product].price);
+
+}
 
 
 window.onload = function() {
@@ -445,6 +515,7 @@ window.onload = function() {
     registerAddModalClickEventListeners(addModalButtons);
     registerRemoveModalClickEventListeners(removeModalButtons);
     openModal();
+
   //  sendRequest();
 
 
