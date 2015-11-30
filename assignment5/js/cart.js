@@ -349,7 +349,6 @@ function checkout() {
         data: orderData,
 
         success: function(data) {
-         alert('wtf');
          for (var key in cart) {
             products[key].quantity -= cart[key];
             cart[key] = 0;
@@ -371,7 +370,6 @@ function loadProducts() {
         type: 'get',
 
         success: function(data) {
-            alert('wtf');
             console.log(data);
             productData = data;
 
@@ -400,8 +398,12 @@ function confirmCheckout(){
                 alert(product + " now costs $" + products[product].price + "each");
             }
         }
-        showButtons();
+
         calculateTotal();
+        var element = document.getElementById("cartTotal");
+        element.innerHTML = "CartTotal($"+priceTotal+")";
+        showButtons();
+
         j++;
     }
     alert("Order placed successfully");

@@ -20,6 +20,19 @@ function postOrder(cart, response) {
     // Insert the json data for the order into the orders collection
     var orders = db.collection("orders");
     orders.insert(cart);
+
+    // Decrease quantities from the products table
+    for (item in cart.cart) {
+      db.collection('products').updateOne(
+        { "name" : item },
+        {
+          $inc: {"quantity" : parseInt(cart.cart[item]) * -1}
+        },
+        function(err2, results) {
+        }
+      )
+    }
+
     db.close();
     response.write(JSON.stringify(cart));
     response.statusCode = 200;
@@ -82,7 +95,6 @@ var serveRequest = function(request, response) {
 
     // Get the POST data
     request.on("data", function(data) {
-      console.log(data);
       postData += data;
     });
 
