@@ -94,17 +94,15 @@ function closestByClass(el, name) {
 * Adds an item to the cart
 */
 function addToCart(product) {
-    //var total = 5;
-   // alert("At least this works");
-     //alert(productName);
     if(products[product].quantity < 1){
         alert("No quantities left in stock!!")
     }
     else{
-      // alert("At least this works too");
+        console.log(cart);
         cart[product]++;
         products[product].quantity --;
-        priceTotal = priceTotal + products[product].price;
+        priceTotal = priceTotal + parseInt(products[product].price);
+        console.log(priceTotal);
         var element = document.getElementById("cartTotal");
         element.innerHTML = "CartTotal($"+priceTotal+")";
         showButtons();
@@ -123,7 +121,7 @@ function removeFromCart(product) {
      else{
          cart[product]--;
          products[product].quantity ++;
-         priceTotal = priceTotal - products[product].price;
+         priceTotal = priceTotal - parseInt(products[product].price);
          var element = document.getElementById("cartTotal");
          element.innerHTML = "CartTotal($"+priceTotal+")";
          showButtons();
@@ -334,52 +332,6 @@ function openModal(){
     });
 }
 
-/*
-function sendRequest(){
-
-     var xhr = new XMLHttpRequest();
-
-
-     xhr.onload = function() {
-     			if (xhr.status==200) {
-     			   // alert(xhr.responseText);
-     			    products = JSON.parse(xhr.responseText);
-     			    totalRequests = 0;
-     			}
-     			else{
-     			    if(totalRequests < 5){
-     			        sendRequest();
-     			        totalRequests++;
-     			    }
-     			    else
-     			        alert("giving up after 5 requests");
-     			}
-     }
-
-     xhr.ontimeout = function() {
-     			//alert("timed out");
-                 if(totalRequests < 5){
-                     sendRequest();
-                     totalRequests++;
-                 }
-                 else
-                     alert("giving up after 5 requests");
-     		}
-     xhr.onerror = function() {
-     			//alert("error");
-                 if(totalRequests < 5){
-                     sendRequest();
-                     totalRequests++;
-                 }
-                 else
-                     alert("giving up after 5 requests");
-     		};
-     xhr.timeout = 2000;
-     xhr.open("GET", " http://localhost:5000/products", true);
-     xhr.send();
-
- }
-*/
 
 function checkout() {
     inactiveTime = 0;
@@ -387,22 +339,22 @@ function checkout() {
         'cart' : cart,
         'total' : priceTotal
     };
-
+    console.log(order);
     var orderData = JSON.stringify(order);
 
     $.ajax({
         url: 'http://localhost:8080/checkout',
         dataType: 'json',
         type: 'post',
-        data: order,
+        data: orderData,
 
         success: function(data) {
-         
+         alert('wtf');
          for (var key in cart) {
             products[key].quantity -= cart[key];
             cart[key] = 0;
          }
-
+            confirmCheckout();
         },
 
         error: function(data) {
@@ -419,6 +371,7 @@ function loadProducts() {
         type: 'get',
 
         success: function(data) {
+            alert('wtf');
             console.log(data);
             productData = data;
 
@@ -430,59 +383,12 @@ function loadProducts() {
                     "url"   : data[datum].image
                 }
             }
-           
-            alert(products);
 
         }
     });
 }
 
-/*
-function checkout(){
-   inactiveTime = 0;
-   var i = 0;
-   for(var product in products){
-        previousPrice[i] = products[product].price;
-        i++;
-   }
-   $.ajax({
-   			url: 'http://localhost:5000/products',
-   			dataType: "json",
-			tryCount : 0,
-   			retryLimit : 5,
-   			timeout: 1000,
-   			success: function(server) {
-                products = server;
-                totalRequests = 0;
-               // alert(products["Box1"].quantity);
-                confirmCheckout();
-            },
-            error: functiƒon(x,t,m){
-                if(t="timeout"){
-                    //alert("timed out");
-
-                        checkout();
-
-                }
-                else{
-
-                        checkout();
-                 }
-            }
-
-        });
-
-
-   // alert(products);
-
-
-}
-*/
-
-/*
 function confirmCheckout(){
-   //alert("Box 1 quantity is " + products["Clothes1"].quantity);
-   //alert("price is " + products["Clothes1"].price);
     var j = 0;
     for(var product in products){
         if (cart[product] > 0){
@@ -498,16 +404,16 @@ function confirmCheckout(){
         calculateTotal();
         j++;
     }
-    alert("Your total is $" + priceTotal);
+    alert("Order placed successfully");
 
 }
-*/
+
 
 
 function calculateTotal(){
     priceTotal = 0;
     for(var product in cart)
-        priceTotal = priceTotal + (cart[product] * products[product].price);
+        priceTotal = priceTotal + parseInt((cart[product] * products[product].price));
 
 }
 
@@ -520,14 +426,12 @@ window.onload = function() {
     var removeButtons = document.getElementsByClassName("remove");
     var addModalButtons = document.getElementsByClassName("addModal");
     var removeModalButtons = document.getElementsByClassName("removeModal");
-    //removeButtons[0].style.visibility = 'hidden';
     registerAddClickEventListeners(addButtons);
     registerRemoveClickEventListeners(removeButtons);
     registerAddModalClickEventListeners(addModalButtons);
     registerRemoveModalClickEventListeners(removeModalButtons);
     openModal();
 
-  //  sendRequest();
 
 
 

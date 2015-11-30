@@ -9,17 +9,17 @@ MongoClient.connect("mongodb://localhost:27017/cpen400a", function(err, db) {
 
     var orders = db.collection("orders");
     orders.deleteMany({}, function(err, results) {
-        console.log(results);
+        console.log('Orders collection cleared');
     });
 
     var users = db.collection("users");
     users.deleteMany({}, function(err, results) {
-        console.log(results);
+        console.log('Users collection cleared');
     });
 
     var products = db.collection("products");
     products.deleteMany({}, function(err, results) {
-        console.log(results);
+        console.log('Products collection cleared');
     });
 
     // Populate the products table
@@ -36,7 +36,8 @@ MongoClient.connect("mongodb://localhost:27017/cpen400a", function(err, db) {
     products.insert({name:"Jeans",price: "39", quantity: "8", image: "https://cpen400a.herokuapp.com/images/Jeans.png"});
     products.insert({name:"Keyboard",price: "22", quantity: "6", image: "https://cpen400a.herokuapp.com/images/Keyboard.png"});
 
-
+    console.log('Products initialized');
+    
     db.close();
 
 });

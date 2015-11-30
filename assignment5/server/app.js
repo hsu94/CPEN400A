@@ -19,12 +19,13 @@ function postOrder(cart, response) {
 
     // Insert the json data for the order into the orders collection
     var orders = db.collection("orders");
-    orders.insert(order);
+    orders.insert(cart);
     db.close();
-
+    response.write(JSON.stringify(cart));
+    response.statusCode = 200;
+    response.end();
   });
 
-  response.end();
 }
 
 function getProductsFromDb(products, response) {
@@ -36,7 +37,6 @@ function getProductsFromDb(products, response) {
 
     db.collection('products').find().each(function(err, item) {
       if (item) {
-        console.log('item found');
         var productName = item['name'];
         products[productName] = {
           "price" : item['price'],
@@ -69,11 +69,11 @@ var serveRequest = function(request, response) {
   response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
   response.setHeader('Access-Control-Allow-Headers', '*');
   if ( response.method === 'OPTIONS' ) {
-    res.writeHead(200);
-    res.end();
+    response.writeHead(200);
+    response.end();
     return;
   }
-  console.log('request received');
+
   if (request.url === "/products") {
     getProducts(response);
   } else if (request.url === "/checkout" && request.method === "POST") {
@@ -82,6 +82,7 @@ var serveRequest = function(request, response) {
 
     // Get the POST data
     request.on("data", function(data) {
+      console.log(data);
       postData += data;
     });
 
